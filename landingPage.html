@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./landingpage.css" rel="stylesheet">
+    <title>Landing Page</title>
+</head>
+<body>
+    <div class="section1">
+        <div class="innerSection1">
+            <h1>The Future Of Identity Verification</h1>
+            <p style="margin-top: 0px; font-size: 20px; color: rgb(1, 1, 70);">Unleash the potential of web3</p>
+        </div>
+        <img src="./images/ab trust.png" class="logo">
+        <div class="innerSection1" id="explanation">
+            <p style="margin-top: 30px; color: rgb(1, 1, 70);">ArbTrust is an Iidentity Verification Decentralized application, which enables users to collect an AuthenticVerifiable Stamp(AVS) in form of NFT.</p>
+            <p style="margin-top: 0px; color: rgb(1, 1, 70);">ArbTrust, built on the Arbitrum network and leveraging artificial intelligence, will serve as a virtual barrier, which keeps out bots and bad actors, allowing only verifed and trustworthy individuals into the blockchain ecosystem without exposing personal or sensitive information.</p>
+
+        </div>
+        <br>
+        <div class="innerSection1">
+            <button id="connectWalletButton">Sign in with Ethereum</button>
+            <img src="./images/1706772436453.png" class="ether">
+            <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+            <script>
+                window.addEventListener('load', async() => {
+                    const connectWalletButton = document.getElementById('connectWalletButton');
+
+                    connectWalletButton.addEventListener('click', async () => {
+                        //modern dapp browsers like Metamaskinject a web3 provider
+                        if (typeof Window.ethereum || Window.web3){
+                            try{
+                                //Request account access if needed
+                                await ethereum.enable();
+                                console.log('Wallet connected:', ethereum.selectedAddress);
+                                //Add other functions afer successfull connection
+                            } catch (error) {
+                                console.error('Wallet connection error:', error);
+                            }
+                        } else{
+                            console.log('Non-Ethereum browser detected, please install metamask');
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>
