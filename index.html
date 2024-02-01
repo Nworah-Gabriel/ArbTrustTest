@@ -33,7 +33,7 @@
                             try{
                                 //Request account access if needed
                                 await ethereum.enable();
-                                console.log('Wallet connected:', ethereum.selectedAddress);
+                                window.location.href = './Steps.html'                                console.log('Wallet connected:', ethereum.selectedAddress);
                                 //Add other functions afer successfull connection
                             } catch (error) {
                                 console.error('Wallet connection error:', error);
