@@ -32,8 +32,12 @@
                         if (typeof Window.ethereum || Window.web3){
                             try{
                                 //Request account access if needed
-                                await ethereum.enable();
-                                window.location.href = './Steps.html'                                console.log('Wallet connected:', ethereum.selectedAddress);
+
+                                const connect = await ethereum.enable();
+                                if (connect){
+                                    window.location.href = './Steps.html'
+                                console.log('Wallet connected:', ethereum.selectedAddress);
+                                }
                                 //Add other functions afer successfull connection
                             } catch (error) {
                                 console.error('Wallet connection error:', error);
